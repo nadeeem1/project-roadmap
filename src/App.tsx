@@ -1,5 +1,9 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { AppLayout } from './components/layout/AppLayout';
+
+const basename = window.location.pathname.startsWith('/project-roadmap')
+  ? '/project-roadmap'
+  : '/';
 import { Dashboard } from './pages/Dashboard';
 import { Projects } from './pages/Projects';
 import { ProjectDetail } from './pages/ProjectDetail';
@@ -9,7 +13,7 @@ import { Settings } from './pages/Settings';
 
 export default function App() {
   return (
-    <BrowserRouter basename="/project-roadmap">
+    <BrowserRouter basename={basename}>
       <Routes>
         <Route element={<AppLayout />}>
           <Route path="/" element={<Dashboard />} />
